@@ -5,10 +5,6 @@ body {
 .dash {
     background: linear-gradient(90deg, rgba(59,160,181,1) 8%, rgba(9,9,121,1) 39%, rgba(15,11,87,1) 93%);
     color: white;
-    height: 40px;
-    padding: 15px;
-    text-align: center;
-    width: auto;
 }
 
 .search {
@@ -16,18 +12,8 @@ body {
     font-size: 20px;
 }
 
-#subBtn {
+#add-city {
     background-color: rgba(42, 102, 214, 0.753);
     color: white;
     padding-left: 35px;
-}
-
-.fiveDayColor {
-    padding: 20px;
-    background-color: #1E90FF;
-    color: white;
-    float: left;
-    margin: 10px;
-    border: 1px solid lightgray;
-
 }

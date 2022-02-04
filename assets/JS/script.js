@@ -14,17 +14,7 @@ var myKey = "&appid=130e45b8035df0b2f3d2389f4fb66852&units=imperial";
 var url = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 
-//startSearch ();
-
-// function startSearch () {
-//     var storedCities = JSON.parse(localStorage.getItem("cities"));
-//       if (storedCities !== null) {
-//         cities = storedCities;
-//       }
-
-//     renderCities();
-// };
-
+//create search history
 function saveCities(){
   localStorage.setItem("cities", JSON.stringify(cities));
 };
@@ -70,6 +60,7 @@ $("#add-city").on("click", function(event){
     // Store updated cities in localStorage, re-render the list
 });
 
+//grab current weather
 function searchCurrentWeather(city) {
     fetch(url + city + myKey, {
         method: 'GET',
@@ -92,6 +83,7 @@ function oneCall(lat, lon, city) {
         return res.json()
     })
     .then(data => {
+    //append data to card
         var currentTemp = data.current.temp
         var currentHumid = data.current.humidity;
         var wind = data.current.wind_speed;
@@ -113,23 +105,7 @@ function oneCall(lat, lon, city) {
             $("#weatherCard").empty();
             $("#weatherCard").append(card)
         console.log(data)
-
-       // Array for 5-days 
-        var day = [0, 8, 16, 24, 32];
-        var fiveDayCard = $(".fiveDayCard").addClass("card-body");
-        var fiveDayDiv = $(".fiveDay").addClass("card-text");
-        fiveDayDiv.empty();
-            // For each for 5 days
-        day.forEach(function (i) {
-            var FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
-                FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
-
-                fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
-
-
-            })
-
         });
-    })
-}
+    }
+
   

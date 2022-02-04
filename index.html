@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
- 
- <h1 class="dash">Weather Dashboard</h1>
+
+<!--
+    <h1 class="dash">Weather Dashboard</h1>
     <div class="search-bar">
     <p class="search">Search for a City:</p>
     </div>
@@ -24,7 +26,7 @@
         </div>
     </div>
 
-<!--main weather report-->
+<--main weather report
 <div class="row">
     <div class="col-8 col-sm-6">
 
@@ -36,7 +38,7 @@
 </div>
 </div>
 
-<!--city history-->
+<--city history
 <h3>Search History:</h3>
     <div class="row card">
         <ul id="city-list" class="list-group list-group-flush">
@@ -44,12 +46,80 @@
         </ul>
     </div>
 
-<!--5 day forecast-->
+<--5 day forecast
 <h5 class="card-title mt-2 mr-5">5-Day Forecast </h5>
 <div class="row">
     <div class="col fiveDay">
     </div>
 </div>
+-->
+
+<!--weather dash-->
+<div class="container-fluid">
+    <div class="row navbar">
+        <div class="col-12 text-center">
+            <div class="dash">
+            <h1 class="navbar-brand pb-0 px-0">Weather Dashboard</h1>
+            </div>
+        </div>
+    </div>
+
+<!--search for city-->
+<div class="row content-row">
+<div class="col-12 col-md-3 bg-light pt-3">
+    <div class="search">
+        <h5>Search for a city:</h5>
+    </div>
+<form class="form-group input-group">
+    <input type="text" class="form-control" id="city-input" placeholder="Enter city here">
+        <div class="input-group-append">
+            <button class="btn btn-primary btn-md" type="submit" id="add-city">Search</button>
+        </div>
+</form>
+
+<!-- Seach History -->
+<div class="card">
+<ul id="city-list" class="list-group list-group-flush">
+    <li class="list-group-item"></li>
+</ul>
+</div>
+</div>
+
+<!--current city info-->
+<div id="weather-content" class="col-12 col-md-9 hide">
+<div class="row" id="weatherCard">
+    <div class="col-12" id="allWeather">
+        <div class="city-info border rounded my-3 px-3 py-3">
+            <h2>City Information</h2>
+            <div id="cardDisplay">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--forecast-->
+<div class="row">
+<div class="col-12">
+    <h3>5-Day Forecast</h3>
+</div>
+</div>
+<div id="five-day-forecast" class="row">
+<div class="col-2">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Date</h5>
+            <i class="fa fa-sun"></i>
+            <p class="card-text">Temp: </p>
+            <p class="card-text">Humidity: </p>
+        </div>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+
 
 
 
