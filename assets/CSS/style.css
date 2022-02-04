@@ -21,3 +21,13 @@ body {
     color: white;
     padding-left: 35px;
 }
+
+.fiveDayColor {
+    padding: 20px;
+    background-color: #1E90FF;
+    color: white;
+    float: left;
+    margin: 10px;
+    border: 1px solid lightgray;
+
+}

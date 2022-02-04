@@ -1,29 +1,29 @@
-var cityText = $("#cityText");
-var tempText = $("#tempText");
-var humidityText = $("#humidityText");
-var windText = $("windText");
-var uvText = $("#uvText");
-var forecastText = $("forecastText");
+// var cityText = $("#cityText");
+// var tempText = $("#tempText");
+// var humidityText = $("#humidityText");
+// var windText = $("windText");
+// var uvText = $("#uvText");
+// var forecastText = $("forecastText");
+// var cityList = $("#city-list")
 
 var cities= [];
 
 var date = moment().format('DD' + "/" + 'MM' + '/' + 'YYYY');
 
-var myKey = "14be78c51cceb2d6a0448333fa09a1223";
+var myKey = "&appid=130e45b8035df0b2f3d2389f4fb66852&units=imperial";
 var url = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 
-startSearch ();
+//startSearch ();
 
-function startSearch () {
-    var storedCities = JSON.parse(localStorage.getItem("cities"));
-      if (storedCities !== null) {
-        cities = storedCities;
-      }
+// function startSearch () {
+//     var storedCities = JSON.parse(localStorage.getItem("cities"));
+//       if (storedCities !== null) {
+//         cities = storedCities;
+//       }
 
-    renderCities();
-
-};
+//     renderCities();
+// };
 
 function saveCities(){
   localStorage.setItem("cities", JSON.stringify(cities));
@@ -50,21 +50,86 @@ function createCities() {
       };
   }   
   
-    
-    $("#add-city").on("click", function(event){
-        event.preventDefault();
-  
-     //grab city from user input
-      var city = $("#city-input").val().trim();
-      
-      // if city is blank
-      if (city === "") {
-          return;
-      }
-      //city array input
-      cities.push(city);
-      // Store updated cities in localStorage, re-render the list
-    saveCities();
-    createCities();
-    });
+
+$("#add-city").on("click", function(event){
+    event.preventDefault();
+
+    //grab city from user input
+    var city = $("#city-input").val().trim();
+    // if city is blank
+    if (city === "") {
+        return;
+    }
+    searchCurrentWeather(city)
+    //city array input
+    if(cities.indexOf(city) === -1) {
+    cities.push(city);
+    window.localStorage.setItem('cities', JSON.stringify(cities))
+        createCities();
+    }
+    // Store updated cities in localStorage, re-render the list
+});
+
+function searchCurrentWeather(city) {
+    fetch(url + city + myKey, {
+        method: 'GET',
+    })
+    .then(res => {
+        return res.json();
+    }).then(data => {
+        var lat = data.coord.lat;
+        var lon  = data.coord.lon;
+        oneCall(lat,lon, city)
+    })
+}
+
+function oneCall(lat, lon, city) {
+    var oneCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}` + myKey;
+    fetch(oneCall, {
+        method: 'GET'
+    })
+    .then(res => {
+        return res.json()
+    })
+    .then(data => {
+        var currentTemp = data.current.temp
+        var currentHumid = data.current.humidity;
+        var wind = data.current.wind_speed;
+        var uvi = data.current.uvi;
+        var pic = data.current.weather[0].icon
+
+        var card = $("<div>").addClass("card");
+        var cardBody = $("<div>").addClass("card-body");
+        var title = $("<h2>").text("City: " + city  )
+        var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + pic + '.png')
+        var temp = $("<h6>").addClass("card-text").text("Temperature: " + currentTemp + " F")
+        var humidity = $("<h6>").addClass("card-text").text("Humidity: " + currentHumid + "%")
+        var windSpeed = $("<h6>").addClass("card-text").text("Wind Speed: " + wind + "MPH")
+        var currentUvi = $("<h6>").addClass("card-text").text("UVI: " + uvi)
+
+        title.append(img)
+        cardBody.append(title, temp, humidity, windSpeed, currentUvi)
+        card.append(cardBody)
+            $("#weatherCard").empty();
+            $("#weatherCard").append(card)
+        console.log(data)
+
+       // Array for 5-days 
+        var day = [0, 8, 16, 24, 32];
+        var fiveDayCard = $(".fiveDayCard").addClass("card-body");
+        var fiveDayDiv = $(".fiveDay").addClass("card-text");
+        fiveDayDiv.empty();
+            // For each for 5 days
+        day.forEach(function (i) {
+            var FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
+                FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
+
+                fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
+
+
+            })
+
+        });
+    })
+}
   
