@@ -57,7 +57,6 @@ $("#add-city").on("click", function(event){
     window.localStorage.setItem('cities', JSON.stringify(cities))
         createCities();
     }
-    // Store updated cities in localStorage, re-render the list
 });
 
 //grab current weather
