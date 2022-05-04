@@ -73,14 +73,6 @@ body, html {
     height: 100%;
 }
 
-.btn {
-    width: 100%;
-    border: black solid;
-    background-color: rgba(9,9,121,1);
-    color: white;
-    margin-top: 0.5rem;
-}
-
 .city {
     margin-top: 2rem;
     padding: 1rem;
