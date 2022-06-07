@@ -73,13 +73,6 @@ body, html {
     height: 100%;
 }
 
-.city {
-    margin-top: 2rem;
-    padding: 1rem;
-    border: black solid 1px;
-    width: 100%;
-}
-
 .forecast {
     width: 25%;
     margin-left: 18rem;
