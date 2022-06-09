@@ -62,10 +62,22 @@ body, html {
     justify-content:space-around;
 }
 
+.search > h2 {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
 .search {
     margin: 1rem;
     padding: 2rem;
     height: 100%;
+}
+
+.city {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: black solid 1px;
+    width: 100%;
 }
 
 .forecast {
