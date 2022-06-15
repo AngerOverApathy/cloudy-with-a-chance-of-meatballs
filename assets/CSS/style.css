@@ -74,19 +74,16 @@ body, html {
     width: 100%;
 }
 
-
+.forecast {
+    width: 25%;
+    margin-left: 18rem;
+}
 
 .day-container {
     display: flex;
     justify-content: center;
 }
  
-.day-container > div {
-    border: solid black 1px;
-    padding: 0 5rem;
-    color: white;
-    background-color: rgba(9,9,121,1);
-    margin: 0.1rem;
-}
+
  */
 
