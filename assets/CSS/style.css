@@ -79,10 +79,7 @@ body, html {
     margin-left: 18rem;
 }
 
-.day-container {
-    display: flex;
-    justify-content: center;
-}
+
  
 .day-container > div {
     border: solid black 1px;
