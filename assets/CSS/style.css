@@ -62,7 +62,10 @@ body, html {
     justify-content:space-around;
 }
 
-
+.search > h2 {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
 
 .city {
     margin-top: 2rem;
