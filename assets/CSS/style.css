@@ -67,6 +67,11 @@ body, html {
     font-size: 1.5rem;
 }
 
+.search {
+    margin: 1rem;
+    padding: 2rem;
+    height: 100%;
+}
 
 .city {
     margin-top: 2rem;
