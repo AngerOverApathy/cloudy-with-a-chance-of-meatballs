@@ -49,7 +49,9 @@ body, html {
 }
 
 .day-container > div {
-    border: black solid 1px;
+    border: rgb(199, 199, 209) solid 1px;
+    color: white;
+    background-color: rgba(9,9,121,1);
     width: 100%;
     padding: 0.5rem;
 }
