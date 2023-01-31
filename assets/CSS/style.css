@@ -24,6 +24,14 @@ body, html {
     grid-row: 1 / 3;
 }
 
+.btn {
+    width: 100%;
+    border: black solid;
+    background-color: rgba(9,9,121,1);
+    color: white;
+    margin-top: 0.5rem;
+}
+
 .city {
     width: 100%;
     border: solid black 1px;
@@ -38,6 +46,12 @@ body, html {
 .day-container {
     display: flex;
     justify-content: space-between;
+}
+
+.day-container > div {
+    border: black solid 1px;
+    width: 100%;
+    padding: 0.5rem;
 }
 
 /* .container {
