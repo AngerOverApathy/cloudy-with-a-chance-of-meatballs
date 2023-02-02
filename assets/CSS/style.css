@@ -14,6 +14,7 @@ body, html {
 .container {
     display: grid;
     grid-template-columns: 2fr 6fr;
+    grid-template-rows: 45% 35% auto;
     grid-gap: 5rem;
     margin: 3rem;
     padding: 1rem;
@@ -21,10 +22,14 @@ body, html {
 
 .city {
     width: 100%;
+    height: 100%;
     border: solid black 1px;
     padding: 1rem 5rem 1rem 1rem;
 }
 
+.forecast {
+    
+}
 /* .container {
     display: flex;
     margin: 1rem;
