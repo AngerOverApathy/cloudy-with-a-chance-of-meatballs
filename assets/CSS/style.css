@@ -13,7 +13,13 @@ body, html {
 
 .container {
     display: grid;
+    grid-template-columns: 2fr 6fr;
+    grid-gap: 5rem;
+    margin: 4rem;
+}
 
+.city {
+    width: 100%;
 }
 
 /* .container {
