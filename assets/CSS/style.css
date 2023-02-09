@@ -42,6 +42,11 @@ body {
     width: 100%;
 }
 
+.forecast {
+    width: 25%;
+    margin-left: 18rem;
+}
+
 .day-container {
     display: flex;
     justify-content: center;
