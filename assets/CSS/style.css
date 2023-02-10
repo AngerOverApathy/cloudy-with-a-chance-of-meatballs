@@ -50,6 +50,9 @@ body {
 .day-container > div {
     border: solid black 1px;
     padding: 0 5rem;
+    color: white;
+    background-color: rgba(9,9,121,1);
+    margin: 0.1rem;
 }
 
 
