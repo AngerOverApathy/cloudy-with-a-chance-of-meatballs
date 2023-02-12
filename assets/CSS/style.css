@@ -42,21 +42,14 @@ body {
     width: 100%;
 }
 
-/*
-.forecast {
-
-}
-
 .day-container {
-    padding: 1rem;
-    margin: 1rem;
-    text-align: end;
-    border: black solid 1px;
     display: flex;
+    justify-content: center;
 }
-
+ 
 .day-container > div {
     border: solid black 1px;
-} */
+    padding: 0 5rem;
+}
 
 
