@@ -1,19 +1,11 @@
 body {
     font-family: Trebuchet, Arial, sans-serif;
+    margin: 0;
 }
 
 .dash {
     background: linear-gradient(90deg, rgba(59,160,181,1) 8%, rgba(9,9,121,1) 39%, rgba(15,11,87,1) 93%);
     color: white;
-}
-
-.search {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#add-city {
-    background-color: rgba(42, 102, 214, 0.753);
-    color: white;
-    padding-left: 35px;
+    text-align: center;
+    padding: .8rem;
 }
