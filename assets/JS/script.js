@@ -1,11 +1,3 @@
-// var cityText = $("#cityText");
-// var tempText = $("#tempText");
-// var humidityText = $("#humidityText");
-// var windText = $("windText");
-// var uvText = $("#uvText");
-// var forecastText = $("forecastText");
-// var cityList = $("#city-list")
-
 var cities= [];
 
 var date = moment().format('DD' + "/" + 'MM' + '/' + 'YYYY');
