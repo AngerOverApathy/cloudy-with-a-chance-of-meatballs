@@ -27,6 +27,8 @@ function getWeather(){
                     
                         document.getElementById('city-name').innerText = data.city.name
                         document.getElementById('temp').innerText = data.list[0].main.temp + '°F'
+                        document.getElementById('wind').innerText = data.list[0].wind.speed
+                        document.getElementById('humidity').innerText = data.list[0].main.humidity + '%'
 
                 })
                 .catch(err => {
