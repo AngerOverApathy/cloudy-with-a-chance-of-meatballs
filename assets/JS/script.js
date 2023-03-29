@@ -1,12 +1,11 @@
-const button = document.getElementById('btn')
 let latitude=''
 let longitude = ''
+const button = document.getElementById('btn')
 
 button.addEventListener('click', getWeather)
 
 
 function getWeather(){
-
     const cityInput = document.getElementById('city-input').value.toLowerCase()
     console.log(cityInput)
 
@@ -23,9 +22,14 @@ function getWeather(){
                 fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=f39fccfcbec15d0db53d6767eddf67f7`)
                     .then(res => res.json()) // parse response as JSON
                     .then(data => {
-                    console.log(data)
-            })
-            
+                    
+                        document.getElementById('city-name').innerText = data.city.name
+
+                })
+                .catch(err => {
+                    console.log(`error ${err}`)
+                });
+
             })
             .catch(err => {
                 console.log(`error ${err}`)
