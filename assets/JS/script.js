@@ -1,4 +1,8 @@
-function getWeather() {
-    const cityInput = document.getElementById('city-input')
-    const cityName = document.getElementById('city-name')
+const button = document.getElementById('btn')
+
+button.addEventListener('click', searchCityWeather)
+
+function searchCityWeather(){
+    const cityInput = document.getElementById('city-input').value
+    console.log(cityInput)
 }
