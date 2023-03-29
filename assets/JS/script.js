@@ -13,17 +13,20 @@ function getWeather(){
     // console.log(state)
 
     //get lat and lon
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput},US&limit=1&appid=f39fccfcbec15d0db53d6767eddf67f7`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput},US&limit=1&appid=f39fccfcbec15d0db53d6767eddf67f7&units=imperial`)
             .then(res => res.json()) // parse response as JSON
             .then(data => {
                 latitude = data[0].lat
                 longitude = data[0].lon
                 
-                fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=f39fccfcbec15d0db53d6767eddf67f7`)
+                fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=f39fccfcbec15d0db53d6767eddf67f7&units=imperial`)
                     .then(res => res.json()) // parse response as JSON
                     .then(data => {
+
+                        console.log(data)
                     
                         document.getElementById('city-name').innerText = data.city.name
+                        document.getElementById('temp').innerText = data.list[0].main.temp + '°F'
 
                 })
                 .catch(err => {
